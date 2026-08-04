@@ -1,4 +1,4 @@
-const CACHE = "bientot28";
+const CACHE = "savelist";
 const ASSETS = [
   "./",
   "./index.html",
