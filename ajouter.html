@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ajouter</title>
+
+<link rel="stylesheet" href="style-ajout.css?v=73">
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <a href="index.html" class="back">
+        ←
+    </a>
+
+    <div class="top-icons">
+
+        <!-- Exporter -->
+        <svg id="exportBtn" class="icon-action export" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="0.9"/>
+          <path d="M12 6V14" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8.5 9.5L12 6L15.5 9.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7 16.5V18H17V16.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+        <!-- Importer -->
+<svg id="importBtn" class="icon-action import" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="0.9"/>
+  <path d="M12 6V14" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M8.5 10.5L12 14L15.5 10.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M7 16.5V18H17V16.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+    </div>
+
+    <div class="content">
+
+        <form id="addForm">
+
+            <label>ARTISTE</label>
+            <input id="artist" placeholder="Nom de l'artiste">
+
+            <label>TITRE</label>
+            <input id="album" placeholder="Titre du vinyle">
+
+            <button type="submit" class="btn-ajout">
+                <img src="ajout2.png" alt="">
+            </button>
+
+<a href="wishlist.html" class="btn-wishlist">
+    <img src="wishlist.png" alt="Wishlist">
+</a>
+            
+        </form>
+
+    </div>
+
+</div>
+
+<input
+    type="file"
+    id="importFile"
+    accept=".json,application/json"
+    hidden>
+    
+<script src="ajouter.js"></script>
+</body>
+</html>
