@@ -65,13 +65,17 @@ importFile.addEventListener("change", (e) => {
 
     reader.onload = () => {
         try {
-            const records = JSON.parse(reader.result);
+            const data = JSON.parse(reader.result);
 
-            if (!Array.isArray(records)) {
-                throw new Error("Format invalide");
-            }
+if (!Array.isArray(data.records)) {
+    throw new Error("Format invalide");
+}
 
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
+localStorage.setItem(STORAGE_KEY, JSON.stringify(data.records));
+
+if (typeof data.wishlist === "string") {
+    localStorage.setItem("wishlist", data.wishlist);
+}
 
             sessionStorage.setItem(
                 "toastMessage",
@@ -93,14 +97,15 @@ exportBtn.addEventListener("click", () => {
 
     if (navigator.vibrate) navigator.vibrate(12);
 
-    const records = JSON.parse(
-        localStorage.getItem(STORAGE_KEY) || "[]"
-    );
+    const data = {
+    records: JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"),
+    wishlist: localStorage.getItem("wishlist") || ""
+};
 
-    const blob = new Blob(
-        [JSON.stringify(records, null, 2)],
-        { type: "application/json" }
-    );
+const blob = new Blob(
+    [JSON.stringify(data, null, 2)],
+    { type: "application/json" }
+);
 
     const url = URL.createObjectURL(blob);
 
