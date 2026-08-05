@@ -1,4 +1,4 @@
-const STORAGE_KEY = "vinyl-collection-v2";
+const STORAGE_KEY = "vinyl-collection-v1";
 
 const starter = [];
 
