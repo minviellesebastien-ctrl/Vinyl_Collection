@@ -1,4 +1,4 @@
-const STORAGE_KEY = "vinyl-collection-v1";
+const STORAGE_KEY = "vinyl-collection-v2";
 
 const starter = [];
 
@@ -67,14 +67,20 @@ importFile.addEventListener("change", (e) => {
         try {
             const data = JSON.parse(reader.result);
 
-if (!Array.isArray(data.records)) {
+if (Array.isArray(data)) {
+    // Ancien format
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+
+} else if (Array.isArray(data.records)) {
+    // Nouveau format
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data.records));
+
+    if (typeof data.wishlist === "string") {
+        localStorage.setItem("wishlist", data.wishlist);
+    }
+
+} else {
     throw new Error("Format invalide");
-}
-
-localStorage.setItem(STORAGE_KEY, JSON.stringify(data.records));
-
-if (typeof data.wishlist === "string") {
-    localStorage.setItem("wishlist", data.wishlist);
 }
 
             sessionStorage.setItem(
