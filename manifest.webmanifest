@@ -2,6 +2,7 @@
   "name": "Collection Vinyles",
   "short_name": "Vinyles",
   "description": "Ma collection personnelle de vinyles",
+  "id": "/Vinyl_Collection/",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
