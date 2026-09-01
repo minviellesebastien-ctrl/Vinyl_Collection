@@ -488,30 +488,25 @@ if (count) {
         après la fin complète du compteur.
       */
 
-      const mixtapeBanner =
-  document.querySelector('.mixtape-banner');
+      const mixtapeBanner = document.querySelector('.mixtape-banner');
 
-if (mixtapeBanner) {
+if(mixtapeBanner){
+  mixtapeBanner.addEventListener('animationend',(e)=>{
+    if(e.animationName !== 'mixtapeSlap') return;
 
-  mixtapeBanner.addEventListener('animationend', (e) => {
-
-    if (e.animationName !== 'mixtapeSlap') return;
-
-    const app = document.querySelector('.app');
+    const app=document.querySelector('.app');
 
     app.classList.remove('impact-shake');
     void app.offsetWidth;
     app.classList.add('impact-shake');
 
-    if (navigator.vibrate) {
-      navigator.vibrate([140, 35, 100]);
-    }
+    if(navigator.vibrate) navigator.vibrate([140,35,100]);
 
-    setTimeout(() => {
+    setTimeout(()=>{
       app.classList.remove('impact-shake');
-    }, 480);
-
+    },480);
   });
+}
 
   setTimeout(() => {
     mixtapeBanner.classList.add('show');
