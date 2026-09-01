@@ -1,10 +1,6 @@
-const CACHE = "mixtape12";
+const CACHE = "mixtape13";
 
 const ASSETS = [
-  "./",
-  "./index.html",
-  "./style.css",
-  "./app.js",
   "./fond.png",
   "./ajout.png",
   "./mixtape.png",
@@ -40,49 +36,24 @@ self.addEventListener("fetch", event => {
 
   const url = new URL(event.request.url);
 
-  // Toujours vérifier le réseau pour les fichiers de l'application
+  // HTML, CSS et JS : toujours réseau
   if (
     url.pathname.endsWith(".html") ||
     url.pathname.endsWith(".css") ||
-    url.pathname.endsWith(".js")
+    url.pathname.endsWith(".js") ||
+    url.pathname === "/" ||
+    url.pathname.endsWith("/")
   ) {
     event.respondWith(
       fetch(event.request)
-        .then(response => {
-          const copy = response.clone();
-
-          caches.open(CACHE).then(cache => {
-            cache.put(event.request, copy);
-          });
-
-          return response;
-        })
         .catch(() => caches.match(event.request))
     );
-
     return;
   }
 
-  // Images et autres ressources :
-  // cache d'abord, réseau en secours
+  // Images et ressources statiques : cache
   event.respondWith(
     caches.match(event.request)
-      .then(cached => {
-        if (cached) {
-          return cached;
-        }
-
-        return fetch(event.request)
-          .then(response => {
-            const copy = response.clone();
-
-            caches.open(CACHE).then(cache => {
-              cache.put(event.request, copy);
-            });
-
-            return response;
-          })
-          .catch(() => caches.match("./index.html"));
-      })
+      .then(cached => cached || fetch(event.request))
   );
 });
