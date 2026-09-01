@@ -525,7 +525,7 @@ pointer-events:none;
 ===================================================== */
 
 .app.impact-shake{
-    animation:screenImpact .32s ease-out;
+    animation:none;
 }
 
 @keyframes screenImpact{
