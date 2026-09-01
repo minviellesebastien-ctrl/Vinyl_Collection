@@ -490,72 +490,36 @@ if (count) {
       */
 
       const mixtapeBanner =
-        document.querySelector(
-          '.mixtape-banner'
-        );
+  document.querySelector('.mixtape-banner');
 
+if (mixtapeBanner) {
 
-      if (mixtapeBanner) {
+  setTimeout(() => {
 
-        setTimeout(() => {
+    // Arrivée du bandeau
+    mixtapeBanner.classList.add('show');
 
-          /*
-            ARRIVÉE BRUTALE
-          */
+    // Impact juste après son arrivée
+    setTimeout(() => {
 
-          mixtapeBanner.classList.add(
-            'show'
-          );
+      const app =
+        document.querySelector('.app');
 
+      app.classList.add('impact-shake');
 
-          /*
-            Impact juste après le placardage
-          */
-
-          setTimeout(() => {
-
-            mixtapeBanner.classList.add(
-              'impact'
-            );
-
-            document.querySelector('.app').classList.add(
-  'screen-shake'
-);
-
-
-            /*
-              Vibration Android synchronisée
-            */
-
-            if (navigator.vibrate) {
-              navigator.vibrate([
-                80,
-                35,
-                50
-              ]);
-            }
-
-
-            /*
-              Fin de la secousse
-            */
-
-            setTimeout(() => {
-
-              mixtapeBanner.classList.remove(
-                'impact'
-              );
-
-              document.querySelector('.app').classList.remove(
-  'screen-shake'
-);
-
-            }, 380);
-
-          }, 430);
-
-        }, 250);
+      if (navigator.vibrate) {
+        navigator.vibrate([80, 35, 50]);
       }
+
+      setTimeout(() => {
+        app.classList.remove('impact-shake');
+      }, 320);
+
+    }, 560);
+
+  }, 250);
+}
+              
     }
   }
 
