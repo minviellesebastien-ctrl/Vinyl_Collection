@@ -494,29 +494,28 @@ if (count) {
 
 if (mixtapeBanner) {
 
-  setTimeout(() => {
+  mixtapeBanner.addEventListener('animationend', (e) => {
 
-    // Arrivée du bandeau
-    mixtapeBanner.classList.add('show');
+    if (e.animationName !== 'mixtapeSlap') return;
 
-    // Impact juste après son arrivée
+    const app = document.querySelector('.app');
+
+    app.classList.remove('impact-shake');
+    void app.offsetWidth;
+    app.classList.add('impact-shake');
+
+    if (navigator.vibrate) {
+      navigator.vibrate([140, 35, 100]);
+    }
+
     setTimeout(() => {
+      app.classList.remove('impact-shake');
+    }, 480);
 
-      const app =
-        document.querySelector('.app');
+  });
 
-      app.classList.add('impact-shake');
-
-      if (navigator.vibrate) {
-        navigator.vibrate([120, 40, 80]);
-      }
-
-      setTimeout(() => {
-        app.classList.remove('impact-shake');
-      }, 420);
-
-    }, 520);
-
+  setTimeout(() => {
+    mixtapeBanner.classList.add('show');
   }, 250);
 }
               
