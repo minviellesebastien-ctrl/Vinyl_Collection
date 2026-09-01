@@ -94,8 +94,7 @@ if (searchBar) {
       `).join('')
       : '<div class="empty">Aucun résultat</div>';
 
-    attachLongPress();
-  }
+    attachLongPress(items);
 
   function searchRecords(){
     const q = searchBar.value.trim().toLowerCase();
@@ -178,13 +177,19 @@ function updateCount(){
  }
 }
 
-function attachLongPress(){
+function attachLongPress(items = records){
  document.querySelectorAll('.vinyl-item').forEach((el,index)=>{
   const start=()=>{pressTimer=setTimeout(()=>{
     navigator.vibrate&&navigator.vibrate(35);
-    openDeleteDialog(index);
+
+    // Retrouve le véritable vinyle dans la collection complète
+    const realIndex = records.indexOf(items[index]);
+
+    openDeleteDialog(realIndex);
   },800);};
+
   const cancel=()=>clearTimeout(pressTimer);
+
   ['touchstart','mousedown'].forEach(ev=>el.addEventListener(ev,start));
   ['touchend','touchcancel','mouseup','mouseleave'].forEach(ev=>el.addEventListener(ev,cancel));
  });
