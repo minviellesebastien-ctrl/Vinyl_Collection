@@ -1,4 +1,4 @@
-const CACHE = "savev4";
+const CACHE = "mixtape1";
 const ASSETS = [
   "./",
   "./index.html",
