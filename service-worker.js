@@ -1,4 +1,4 @@
-const CACHE = "mixtape10";
+const CACHE = "mixtape12";
 
 const ASSETS = [
   "./",
