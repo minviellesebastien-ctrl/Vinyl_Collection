@@ -518,9 +518,9 @@ if (count) {
               'impact'
             );
 
-            document.body.classList.add(
-              'screen-shake'
-            );
+            document.querySelector('.app').classList.add(
+  'screen-shake'
+);
 
 
             /*
@@ -546,9 +546,9 @@ if (count) {
                 'impact'
               );
 
-              document.body.classList.remove(
-                'screen-shake'
-              );
+              document.querySelector('.app').classList.remove(
+  'screen-shake'
+);
 
             }, 380);
 
