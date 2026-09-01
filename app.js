@@ -508,14 +508,14 @@ if (mixtapeBanner) {
       app.classList.add('impact-shake');
 
       if (navigator.vibrate) {
-        navigator.vibrate([80, 35, 50]);
+        navigator.vibrate([120, 40, 80]);
       }
 
       setTimeout(() => {
         app.classList.remove('impact-shake');
-      }, 320);
+      }, 420);
 
-    }, 560);
+    }, 520);
 
   }, 250);
 }
