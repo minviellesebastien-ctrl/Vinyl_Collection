@@ -40,7 +40,7 @@ self.addEventListener("fetch", event => {
 
   const url = new URL(event.request.url);
 
-  // HTML / CSS / JS : toujours vérifier la version réseau
+  // Toujours vérifier le réseau pour les fichiers de l'application
   if (
     url.pathname.endsWith(".html") ||
     url.pathname.endsWith(".css") ||
@@ -50,9 +50,11 @@ self.addEventListener("fetch", event => {
       fetch(event.request)
         .then(response => {
           const copy = response.clone();
+
           caches.open(CACHE).then(cache => {
             cache.put(event.request, copy);
           });
+
           return response;
         })
         .catch(() => caches.match(event.request))
@@ -61,11 +63,14 @@ self.addEventListener("fetch", event => {
     return;
   }
 
-  // Images et autres fichiers : cache d'abord
+  // Images et autres ressources :
+  // cache d'abord, réseau en secours
   event.respondWith(
     caches.match(event.request)
       .then(cached => {
-        if (cached) return cached;
+        if (cached) {
+          return cached;
+        }
 
         return fetch(event.request)
           .then(response => {
