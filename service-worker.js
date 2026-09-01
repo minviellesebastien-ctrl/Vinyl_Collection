@@ -1,4 +1,4 @@
-const CACHE = "mixtape1";
+const CACHE = "mixtape2";
 const ASSETS = [
   "./",
   "./index.html",
