@@ -413,7 +413,6 @@ if (count) {
   const duration = 2300;
   const start = performance.now();
 
-
   function anim(t) {
 
     const p =
@@ -422,14 +421,11 @@ if (count) {
         1
       );
 
-
     const e =
       1 - Math.pow(1 - p, 4);
 
-
     count.textContent =
       Math.round(total * e);
-
 
     if (p < 1) {
 
@@ -441,18 +437,62 @@ if (count) {
 
       count.classList.add('count-bounce');
 
-
       count.addEventListener(
         'animationend',
         () => {
 
-          count.classList.remove(
-            'count-bounce'
-          );
+          count.classList.remove('count-bounce');
+
+          const mixtapeBanner =
+            document.querySelector('.mixtape-banner');
+
+          if (!mixtapeBanner) return;
+
+          /* Le bandeau arrive */
+
+          mixtapeBanner.classList.add('show');
+
+          /* 
+             Secousse légèrement avant
+             la fin du bandeau (.55s)
+          */
+
+          setTimeout(() => {
+
+            const app =
+              document.querySelector('.app');
+
+            if (!app) return;
+
+            app.classList.remove('impact-shake');
+
+            void app.offsetWidth;
+
+            app.classList.add('impact-shake');
+
+            if (navigator.vibrate) {
+              navigator.vibrate([140, 35, 100]);
+            }
+
+            setTimeout(() => {
+
+              app.classList.remove(
+                'impact-shake'
+              );
+
+            }, 480);
+
+          }, 400);
 
         },
         { once: true }
       );
+
+    }
+  }
+
+  requestAnimationFrame(anim);
+}
 
 
       /* =========================
