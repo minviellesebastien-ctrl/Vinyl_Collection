@@ -95,6 +95,7 @@ if (searchBar) {
       : '<div class="empty">Aucun résultat</div>';
 
     attachLongPress(items);
+  }
 
   function searchRecords(){
     const q = searchBar.value.trim().toLowerCase();
