@@ -754,11 +754,8 @@ function fixBottomBar() {
   const viewport =
     window.visualViewport;
 
-
   const height =
-    viewport
-      ? viewport.height
-      : window.innerHeight;
+    window.innerHeight;
 
 
   document.documentElement.style.setProperty(
