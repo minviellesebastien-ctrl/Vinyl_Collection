@@ -521,14 +521,7 @@ pointer-events:none;
 
 
 /* IMPACT ÉCRAN */
-#impactLayer{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:9999;
-}
-
-#impactLayer.impact-shake{
+body.impact-shake{
     animation:screenImpact .32s ease-out;
 }
 
