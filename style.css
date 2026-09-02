@@ -608,7 +608,7 @@ pointer-events:none;
 
     color:#fff;
 
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:"JimmyCollins", sans-serif;
     font-size:18px;
     line-height:1.45;
 
@@ -651,4 +651,9 @@ pointer-events:none;
 
 .mixtape-dialog{
     transform:translateY(60px);
+}
+
+@font-face {
+    font-family: "JimmyCollins";
+    src: url("JimmyCollins.otf") format("opentype");
 }
