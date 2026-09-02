@@ -620,30 +620,31 @@ pointer-events:none;
 
 .mixtape-dialog .back{
     position:relative;
-
     top:auto;
     left:auto;
-
-    display:flex;
-
-    margin:18px auto 0;
 
     width:46px;
     height:46px;
 
+    margin:18px auto 0;
+
     border:2px solid #d6aa16;
     border-radius:50%;
 
+    display:flex;
     align-items:center;
     justify-content:center;
 
     color:#d6aa16;
-
     font-size:26px;
 
     background:rgba(0,0,0,.22);
-
     box-shadow:0 6px 14px rgba(0,0,0,.45);
 
     outline:none;
+}
+
+.mixtape-banner{
+    pointer-events:auto;
+    cursor:pointer;
 }
