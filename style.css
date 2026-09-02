@@ -648,3 +648,7 @@ pointer-events:none;
     pointer-events:auto;
     cursor:pointer;
 }
+
+.mixtape-dialog{
+    transform:translateY(40px);
+}
