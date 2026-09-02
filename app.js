@@ -619,14 +619,7 @@ if (count) {
           setTimeout(() => {
 
 
-            const impactLayer =
-  document.getElementById(
-    'impactLayer'
-  );
-
-if (!impactLayer) {
-  return;
-}
+            const impactLayer = document.body;
 
 impactLayer.classList.remove(
   'impact-shake'
