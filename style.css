@@ -609,7 +609,7 @@ pointer-events:none;
     color:#fff;
 
     font-family:"JimmyCollins", sans-serif;
-    font-size:18px;
+    font-size:26px;
     line-height:1.45;
 
     text-align:left;
@@ -650,7 +650,7 @@ pointer-events:none;
 }
 
 .mixtape-dialog{
-    transform:translateY(60px);
+    transform:translateY(50px);
 }
 
 @font-face {
