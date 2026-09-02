@@ -589,29 +589,24 @@ pointer-events:none;
 
 .mixtape-text{
     position:absolute;
-
     left:4%;
     width:92%;
-
     top:28%;
     height:67%;
-
     padding:12px;
-
     resize:none;
     overflow-y:auto;
-
     border:0;
     outline:none;
-
     background:transparent;
-
-    color:#fff;
-
+    color:#e8e8e8;
+    text-shadow:
+    1px 1px 1px rgba(0,0,0,.75),
+    -1px -1px 1px rgba(255,255,255,.15);
+  
     font-family:"JimmyCollins", sans-serif;
     font-size:26px;
     line-height:1.45;
-
     text-align:left;
 }
 
