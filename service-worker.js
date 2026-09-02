@@ -1,4 +1,4 @@
-const CACHE = "mixtape28";
+const CACHE = "mixtape29";
 
 const ASSETS = [
   "./fond.png",
