@@ -679,37 +679,57 @@ if (count) {
 
 }
 
-
 /* =========================
    POP-UP MIXTAPE
 ========================= */
 
 const mixtapePopupBanner =
-  document.querySelector(
-    '.mixtape-banner'
-  );
-
+  document.querySelector('.mixtape-banner');
 
 const mixtapeDialog =
-  document.getElementById(
-    'mixtapeDialog'
-  );
-
+  document.getElementById('mixtapeDialog');
 
 const mixtapeBack =
-  document.getElementById(
-    'mixtapeBack'
+  document.getElementById('mixtapeBack');
+
+const mixtapeText =
+  document.querySelector('.mixtape-text');
+
+const MIXTAPE_STORAGE_KEY = "mixtape";
+
+
+function loadMixtape(){
+
+  if(!mixtapeText) return;
+
+  mixtapeText.value =
+    localStorage.getItem(MIXTAPE_STORAGE_KEY) || "";
+
+}
+
+
+function saveMixtape(){
+
+  if(!mixtapeText) return;
+
+  localStorage.setItem(
+    MIXTAPE_STORAGE_KEY,
+    mixtapeText.value
   );
 
+}
 
-if (
+
+if(
   mixtapePopupBanner &&
   mixtapeDialog
-) {
+){
 
   mixtapePopupBanner.addEventListener(
     'click',
     () => {
+
+      loadMixtape();
 
       mixtapeDialog.showModal();
 
@@ -719,27 +739,16 @@ if (
 }
 
 
-if (
+if(
   mixtapeBack &&
   mixtapeDialog
-) {
+){
 
   mixtapeBack.addEventListener(
     'click',
     () => {
 
-      mixtapeBack.classList.remove(
-        'bounce'
-      );
-
-
-      void mixtapeBack.offsetWidth;
-
-
-      mixtapeBack.classList.add(
-        'bounce'
-      );
-
+      saveMixtape();
 
       mixtapeDialog.close();
 
