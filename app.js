@@ -864,3 +864,64 @@ if (window.visualViewport) {
 
 refreshBottomBar();
 
+/* =========================
+   MIXTAPE — CLAVIER
+========================= */
+
+if (
+  window.visualViewport &&
+  mixtapeDialog
+) {
+
+  const updateMixtapePosition = () => {
+
+    if (!mixtapeDialog.open) {
+      return;
+    }
+
+    const viewportHeight =
+      window.visualViewport.height;
+
+    const keyboardOpen =
+      window.innerHeight - viewportHeight > 150;
+
+    if (keyboardOpen) {
+
+      mixtapeDialog.style.position =
+        "fixed";
+
+      mixtapeDialog.style.top =
+        "50%";
+
+      mixtapeDialog.style.left =
+        "50%";
+
+      mixtapeDialog.style.margin =
+        "0";
+
+      mixtapeDialog.style.transform =
+        "translate(-50%, calc(-50% + 26px))";
+
+    } else {
+
+      mixtapeDialog.style.position = "";
+
+      mixtapeDialog.style.top = "";
+
+      mixtapeDialog.style.left = "";
+
+      mixtapeDialog.style.margin = "";
+
+      mixtapeDialog.style.transform = "";
+
+    }
+
+  };
+
+
+  window.visualViewport.addEventListener(
+    "resize",
+    updateMixtapePosition
+  );
+
+}
