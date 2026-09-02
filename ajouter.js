@@ -78,6 +78,12 @@ if (Array.isArray(data)) {
     if (typeof data.wishlist === "string") {
         localStorage.setItem("wishlist", data.wishlist);
     }
+  if (typeof data.mixtape === "string") {
+    localStorage.setItem(
+        "mixtape",
+        data.mixtape
+    );
+  }
 
 } else {
     throw new Error("Format invalide");
@@ -105,7 +111,8 @@ exportBtn.addEventListener("click", () => {
 
     const data = {
     records: JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"),
-    wishlist: localStorage.getItem("wishlist") || ""
+    wishlist: localStorage.getItem("wishlist") || "",
+    mixtape: localStorage.getItem("mixtape") || ""
 };
 
 const blob = new Blob(
