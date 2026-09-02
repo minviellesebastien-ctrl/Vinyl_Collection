@@ -619,46 +619,40 @@ if (count) {
           setTimeout(() => {
 
 
-            const app =
-              document.querySelector(
-                '.app'
-              );
+            const impactLayer =
+  document.getElementById(
+    'impactLayer'
+  );
 
+if (!impactLayer) {
+  return;
+}
 
-            if (!app) {
-              return;
-            }
+impactLayer.classList.remove(
+  'impact-shake'
+);
 
+void impactLayer.offsetWidth;
 
-            app.classList.remove(
-              'impact-shake'
-            );
+impactLayer.classList.add(
+  'impact-shake'
+);
 
+if (navigator.vibrate) {
 
-            void app.offsetWidth;
+  navigator.vibrate(
+    [140, 35, 100]
+  );
 
+}
 
-            app.classList.add(
-              'impact-shake'
-            );
+setTimeout(() => {
 
+  impactLayer.classList.remove(
+    'impact-shake'
+  );
 
-            if (navigator.vibrate) {
-
-              navigator.vibrate(
-                [140, 35, 100]
-              );
-
-            }
-
-
-            setTimeout(() => {
-
-              app.classList.remove(
-                'impact-shake'
-              );
-
-            }, 480);
+}, 480);
 
 
           }, 300);
